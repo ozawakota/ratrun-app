@@ -1,5 +1,5 @@
 <template>
-  <div class="top-page">setup</div>
+  <div class="top-page"></div>
 </template>
 
 <script setup>
