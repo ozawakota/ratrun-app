@@ -1,0 +1,131 @@
+
+// Fonts
+$baseFontFamily: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
+
+// Colors
+$colorText: #333;
+
+
+$tb:  768px;
+$tb-min:  769px;
+
+@mixin tablet {
+  @media only screen and (min-width: ($tb-min)) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media only screen and (max-width: ($tb)) {
+    @content;
+  }
+}
+
+
+
+@function contWidth($num,$base){ 
+  @return calc($num / $base) * 100%;
+}
+
+
+@function vwPC($num){
+  @return 100vw * calc($num / 1920);
+}
+@function vwSP($num){
+  @return 100vw * calc($num * 2 / 750);
+}
+
+
+.is-pc {
+  display: none !important;
+  @include tablet {
+    display: block !important;
+  }
+}
+@include tablet {
+  .is-sp {
+    display: none !important;
+  }
+}
+
+
+
+* {
+  box-sizing: border-box;
+  scroll-margin-top: var(--header-height);
+  &:before,
+  &:after {
+    box-sizing: inherit;
+  }
+}
+
+html,
+body {
+  text-size-adjust: 100%;
+}
+
+html {
+  line-height: 1.15;
+  --header-height: 0;
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  font-family: $baseFontFamily;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: $colorText;
+  word-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+  
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+p{
+  font-size: 14px;
+  line-height: 1.5;
+  
+}
+
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+
+}
+
+li, nav ul, ol, ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+dl,
+dd {
+  margin: 0;
+}
+
+
+.c-inner {
+  width: calc(100% - 3rem);
+  margin-inline: auto;
+}
