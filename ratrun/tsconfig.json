@@ -4,8 +4,12 @@
     "allowJs": true,
     "types": [
       "vue"
-    ]
-    // その他の設定
+    ],
+    // その他の設定,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    }
   },
   "esModuleInterop": true
 }
