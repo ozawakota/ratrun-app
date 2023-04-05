@@ -1,5 +1,6 @@
 <template>
   <div class="top-page">
+    <p>トップページ</p>
     <ul>
       <li>
         <a href="">test</a>

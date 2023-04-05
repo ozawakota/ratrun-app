@@ -1,4 +1,11 @@
 {
-  // https://nuxt.com/docs/guide/concepts/typescript
-  "extends": "./.nuxt/tsconfig.json"
+  // https://nuxt.com/docs/guide/concepts/typescript　
+  "compilerOptions": {
+    "allowJs": true,
+    "types": [
+      "vue"
+    ]
+    // その他の設定
+  },
+  "esModuleInterop": true
 }
