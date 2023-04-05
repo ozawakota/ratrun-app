@@ -1,10 +1,7 @@
 <template>
-  <div>
-    aaa
-    <!-- <AppLoginContainer /> -->
-  </div>
+  <AppLoginContainer />
 </template>
 
-<!-- <script setup lang="ts">
+<script setup lang="ts">
 import { AppLoginContainer } from "../../containers/Login";
-</script> -->
+</script>
