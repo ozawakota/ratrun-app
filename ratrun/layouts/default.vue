@@ -1,21 +1,16 @@
+<script lang="ts" setup>
+import { AppHeader } from "../components/organisms/Header";
+import { AppFooter } from "../components/organisms/Footer";
+</script>
+
 <template>
   <div class="wrapper">
-    <Header></Header>
+    <AppHeader />
     <NuxtPage />
-    <Footer></Footer>
+    <AppFooter />
   </div>
 </template>
 
-<script>
-import { Header } from "../components/organisms/Header";
-import { Footer } from "../components/organisms/Footer";
-
-export default {
-  components: { Header, Footer },
-};
-</script>
 
 <style lang='scss' scoped>
-.wrapper {
-}
 </style>

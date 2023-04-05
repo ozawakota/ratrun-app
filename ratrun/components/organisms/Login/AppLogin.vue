@@ -6,5 +6,5 @@
 </template>
   
 <script lang="ts" setup>
-import { AppForm } from "../..//molecules/Form";
+import { AppForm } from "../../molecules/Form";
 </script>
