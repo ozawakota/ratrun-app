@@ -2,12 +2,8 @@
   <AppLogin />
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { AppLogin } from "../../components/organisms/Login";
-export default {
-  components: { AppLogin },
-  setup() {
-    // ここでAPIを叩いたり、状態を管理する
-  },
-};
+
+// ここでAPIを叩いたり、状態を管理する
 </script>

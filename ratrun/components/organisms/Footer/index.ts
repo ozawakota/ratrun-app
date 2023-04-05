@@ -1,3 +1,2 @@
-import Footer from "./Footer.vue";
-
-export { Footer };
+import AppFooter from "./AppFooter.vue";
+export { AppFooter };

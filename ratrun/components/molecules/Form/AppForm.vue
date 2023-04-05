@@ -1,22 +1,16 @@
-<!-- 使いまわせるようにAppFormとして置いておく -->
 <template>
   <div>
     <BasicInput type="text" />
     <BasicInput type="password" />
-    <BasicButton @onClick="handleOnClick" />
+    <BasicButton @click="handleOnClick" />
   </div>
 </template>
   
-  <script lang="ts">
+<script setup lang="ts">
 import { BasicInput } from "../../atoms/Input";
 import { BasicButton } from "../../atoms/Button";
-export default {
-  components: { BasicInput, BasicButton },
-  setup() {
-    const handleOnClick = (): void => {
-      console.log("click");
-    };
-    return { handleOnClick };
-  },
+
+const handleOnClick = (): void => {
+  console.log("click");
 };
 </script>

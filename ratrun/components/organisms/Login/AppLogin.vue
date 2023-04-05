@@ -4,10 +4,7 @@
     <AppForm />
   </div>
 </template>
-
-<script lang="ts">
+  
+<script lang="ts" setup>
 import { AppForm } from "../../molecules/Form";
-export default {
-  components: { AppForm },
-};
 </script>

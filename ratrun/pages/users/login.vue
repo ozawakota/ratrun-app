@@ -2,6 +2,6 @@
   <AppLoginContainer />
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { AppLoginContainer } from "../../containers/Login";
 </script>

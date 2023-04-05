@@ -1,3 +1,2 @@
-import Header from "./Header";
-
-export { Header };
+import AppHeader from "./AppHeader.vue";
+export { AppHeader };
