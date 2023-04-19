@@ -18,10 +18,10 @@
         <nav class="header-nav">
           <ul>
             <li>
-              <a href=""> 案件を探す </a>
+              <nuxt-link to="">案件を探す</nuxt-link>
             </li>
             <li>
-              <a href=""> ログイン </a>
+              <nuxt-link to="">ログイン</nuxt-link>
             </li>
           </ul>
         </nav>
