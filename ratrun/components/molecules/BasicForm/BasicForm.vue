@@ -6,7 +6,7 @@
         <BasicInput
           type="email"
           placeholder="taro.tanaka@example.com"
-          v-model="formData.email"
+          v-model="formDataParent.email"
         />
       </div>
     </fieldset>
@@ -16,7 +16,7 @@
         <BasicInput
           type="password"
           placeholder="パスワード(半角英数6文字以上)"
-          v-model="formData.password"
+          v-model="formDataParent.password"
         />
       </div>
     </fieldset>
@@ -32,24 +32,17 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+import { inject, ref } from "vue";
 import { BasicInput } from "../../atoms/Input";
 import { BasicButton } from "../../atoms/Button";
 
-import { UserReqType } from "../../../types/user/LoginType";
-
-// フォームデータ
-const formData = ref<UserReqType>({
-  email: "",
-  password: "",
-});
-
-// バリデーションチェック
+// import { formData } from "../../../containers/Signup";
+const formDataParent = inject("parentformData", ref(null));
 
 // フォームデータの処理
 const submitForm = () => {
   // ここでフォームデータを処理します。例えば、APIに送信します。
-  console.log("Form data:", formData.value);
+  console.log("Form data:");
 };
 </script>
 

@@ -3,14 +3,14 @@
     <div class="c-inner">
       <div class="login_inner">
         <h2 class="p-title">ログイン画面</h2>
-        <AppForm />
+        <BasicForm />
       </div>
     </div>
   </section>
 </template>
   
 <script lang="ts" setup>
-import { AppForm } from "../../molecules/Form";
+import { BasicForm } from "../../molecules/BasicForm";
 </script>
 
 <style lang="scss" scoped>
