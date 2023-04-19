@@ -3,9 +3,9 @@
     <fieldset class="c-fieldset">
       <legend>メールアドレス</legend>
       <div class="form_input">
-        <input
-          type="email"
-          placeholder="taro.tanaka@example.com"
+        <BasicInput
+          :type="inputEmail.type"
+          :placeholder="inputEmail.placeholder"
           v-model="formData.email"
         />
       </div>
@@ -13,9 +13,9 @@
     <fieldset class="c-fieldset">
       <legend>パスワード</legend>
       <div class="form_input">
-        <input
-          type="password"
-          placeholder="パスワード(半角英数6文字以上)"
+        <BasicInput
+          :type="inputPWD.type"
+          :placeholder="inputPWD.placeholder"
           v-model="formData.password"
         />
       </div>
@@ -29,9 +29,19 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
+import { BasicInput } from "../../atoms/Input";
 import { BasicButton } from "../../atoms/Button";
+
 import { UserReqType } from "../../../types/user/LoginType";
 
+const inputEmail = {
+  type: "email",
+  placeholder: "taro.tanaka@example.com",
+};
+const inputPWD = {
+  type: "password",
+  placeholder: "パスワード(半角英数6文字以上)",
+};
 const buttonText = "同意して新規登録する(無料)";
 const buttonClass = "-red";
 
