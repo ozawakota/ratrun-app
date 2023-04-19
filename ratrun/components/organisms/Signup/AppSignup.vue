@@ -1,20 +1,20 @@
 <template>
-  <section class="page login">
+  <section class="page signup">
     <div class="c-inner">
-      <div class="login_inner">
-        <h2 class="p-title">ログイン画面</h2>
-        <AppForm />
+      <div class="signup_inner">
+        <h2 class="p-title">新規会員登録</h2>
+        <BasicForm />
       </div>
     </div>
   </section>
 </template>
   
 <script lang="ts" setup>
-import { AppForm } from "../../molecules/Form";
+import { BasicForm } from "../../molecules/BasicForm";
 </script>
 
 <style lang="scss" scoped>
-.login {
+.signup {
   &_inner {
     margin-block-start: 30px;
     max-width: 740px;

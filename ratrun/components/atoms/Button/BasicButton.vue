@@ -1,5 +1,5 @@
 <template>
-  <button @click="onClick" :class="['c-btn', buttonClass]">
+  <button @click="onClick" :class="['c-btn']">
     <span>{{ text }}</span>
   </button>
 </template>
@@ -12,7 +12,11 @@ const props = defineProps({
     type: String,
     default: "クリック",
   },
-  buttonClass: {
+  color: {
+    type: String,
+    default: "",
+  },
+  backGround: {
     type: String,
     default: "",
   },
@@ -27,3 +31,11 @@ const onClick = (): void => {
 const emit = defineEmits(["clickButton"]);
 </script>
   
+
+<style lang="scss" scoped>
+.c-btn {
+  background-color: v-bind(backGround);
+  border-color: v-bind(backGround);
+  color: v-bind(color);
+}
+</style>

@@ -4,8 +4,8 @@
       <legend>メールアドレス</legend>
       <div class="form_input">
         <BasicInput
-          :type="inputEmail.type"
-          :placeholder="inputEmail.placeholder"
+          type="email"
+          placeholder="taro.tanaka@example.com"
           v-model="formData.email"
         />
       </div>
@@ -14,15 +14,19 @@
       <legend>パスワード</legend>
       <div class="form_input">
         <BasicInput
-          :type="inputPWD.type"
-          :placeholder="inputPWD.placeholder"
+          type="password"
+          placeholder="パスワード(半角英数6文字以上)"
           v-model="formData.password"
         />
       </div>
     </fieldset>
 
     <div class="form-btn signup_form-btn">
-      <BasicButton :text="buttonText" :class="buttonClass" />
+      <BasicButton
+        text="同意して新規登録する(無料)"
+        color="#fff"
+        backGround="#F86986"
+      />
     </div>
   </form>
 </template>
@@ -33,17 +37,6 @@ import { BasicInput } from "../../atoms/Input";
 import { BasicButton } from "../../atoms/Button";
 
 import { UserReqType } from "../../../types/user/LoginType";
-
-const inputEmail = {
-  type: "email",
-  placeholder: "taro.tanaka@example.com",
-};
-const inputPWD = {
-  type: "password",
-  placeholder: "パスワード(半角英数6文字以上)",
-};
-const buttonText = "同意して新規登録する(無料)";
-const buttonClass = "-red";
 
 // フォームデータ
 const formData = ref<UserReqType>({
