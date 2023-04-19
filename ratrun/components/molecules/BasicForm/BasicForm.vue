@@ -20,17 +20,21 @@
         />
       </div>
     </fieldset>
+
     <div class="form-btn signup_form-btn">
-      <button name="button" type="submit" class="c-btn -red">
-        <span>同意して新規登録する(無料)</span>
-      </button>
+      <BasicButton :text="buttonText" :class="buttonClass" />
     </div>
   </form>
 </template>
 
 <script lang="ts" setup>
 import { ref } from "vue";
+import { BasicButton } from "../../atoms/Button";
 import { UserReqType } from "../../../types/user/LoginType";
+
+const buttonText = "同意して新規登録する(無料)";
+const buttonClass = "-red";
+
 // フォームデータ
 const formData = ref<UserReqType>({
   email: "",

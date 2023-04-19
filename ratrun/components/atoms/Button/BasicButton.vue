@@ -1,5 +1,7 @@
 <template>
-  <button @click="onClick">{{ text }}</button>
+  <button @click="onClick" :class="['c-btn', buttonClass]">
+    <span>{{ text }}</span>
+  </button>
 </template>
   
 <script lang="ts" setup>
@@ -9,6 +11,10 @@ const props = defineProps({
   text: {
     type: String,
     default: "クリック",
+  },
+  buttonClass: {
+    type: String,
+    default: "",
   },
 });
 
