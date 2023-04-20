@@ -3,7 +3,7 @@
     <div class="c-inner">
       <div class="signup_inner">
         <h2 class="p-title">新規会員登録</h2>
-        <BasicForm />
+        <BasicForm @form-submitted="$emit('form-submitted', $event)" />
       </div>
     </div>
   </section>

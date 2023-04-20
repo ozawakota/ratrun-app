@@ -1,5 +1,5 @@
 <template>
-  <form class="signup_form" @submit.prevent="submitForm">
+  <form class="signup_form">
     <fieldset class="c-fieldset" v-for="(data, key) in inputData" :key="key">
       <legend>{{ data.label }}</legend>
       <div class="form_input">
@@ -16,22 +16,26 @@
         text="同意して新規登録する(無料)"
         color="#fff"
         backGround="#F86986"
+        @clickButton="submitForm(inputData)"
       />
     </div>
   </form>
 </template>
 
 <script lang="ts" setup>
-import { inject, reactive } from "vue";
+import { inject, defineEmits, reactive } from "vue";
 import { BasicInput } from "../../atoms/Input";
 import { BasicButton } from "../../atoms/Button";
 
 const inputData = inject("formDataKey", reactive(null));
+const emit = defineEmits(["form-submitted"]);
 
-// フォームデータの処理
-const submitForm = () => {
-  // ここでフォームデータを処理します。例えば、APIに送信します。
-  console.log("Form data:");
+// // フォームデータの処理
+const submitForm = (inputData) => {
+  console.log("BasicForm", inputData);
+
+  // フォームデータを親コンポーネントに送信します(AppSignup.vue)
+  emit("form-submitted", inputData);
 };
 </script>
 
