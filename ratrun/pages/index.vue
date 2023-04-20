@@ -1,5 +1,6 @@
 <template>
   <div class="top-page">
+    <p>トップページ</p>
     <ul>
       <li>
         <a href="">test</a>
@@ -8,14 +9,7 @@
   </div>
 </template>
 
-<script setup>
-</script>
 
-<script >
-export default {
-  setup() {},
-};
-</script>
 
 <style lang="scss" scoped>
 .top {
