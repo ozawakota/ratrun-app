@@ -1,22 +1,12 @@
 <template>
   <form class="signup_form" @submit.prevent="submitForm">
-    <fieldset class="c-fieldset">
-      <legend>メールアドレス</legend>
+    <fieldset class="c-fieldset" v-for="(data, key) in inputData" :key="key">
+      <legend>{{ data.label }}</legend>
       <div class="form_input">
         <BasicInput
-          type="email"
-          placeholder="taro.tanaka@example.com"
-          v-model="formDataParent.email"
-        />
-      </div>
-    </fieldset>
-    <fieldset class="c-fieldset">
-      <legend>パスワード</legend>
-      <div class="form_input">
-        <BasicInput
-          type="password"
-          placeholder="パスワード(半角英数6文字以上)"
-          v-model="formDataParent.password"
+          :type="data.type"
+          :placeholder="data.placeholder"
+          v-model="data.value"
         />
       </div>
     </fieldset>
@@ -32,12 +22,11 @@
 </template>
 
 <script lang="ts" setup>
-import { inject, ref } from "vue";
+import { inject, reactive } from "vue";
 import { BasicInput } from "../../atoms/Input";
 import { BasicButton } from "../../atoms/Button";
 
-// import { formData } from "../../../containers/Signup";
-const formDataParent = inject("parentformData", ref(null));
+const inputData = inject("formDataKey", reactive(null));
 
 // フォームデータの処理
 const submitForm = () => {
