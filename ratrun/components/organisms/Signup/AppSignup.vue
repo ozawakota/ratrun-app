@@ -3,14 +3,20 @@
     <div class="c-inner">
       <div class="signup_inner">
         <h2 class="p-title">新規会員登録</h2>
-        <BasicForm @form-submitted="$emit('form-submitted', $event)" />
+        <BasicForm
+          @form-submitted="$emit('formSubmitted', $event)"
+          @update-input="$emit('updateInput', $event)"
+        />
       </div>
     </div>
   </section>
 </template>
   
 <script lang="ts" setup>
+import { defineEmits } from "vue";
 import { BasicForm } from "../../molecules/BasicForm";
+
+const emit = defineEmits(["updateInput", "formSubmitted"]);
 </script>
 
 <style lang="scss" scoped>

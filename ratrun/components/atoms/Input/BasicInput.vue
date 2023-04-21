@@ -1,9 +1,14 @@
 <template>
-  <input :type="type" :placeholder="placeholder" :value="value" />
+  <input
+    :type="type"
+    :placeholder="placeholder"
+    :value="value"
+    @input="$emit('updateInput', $event)"
+  />
 </template>
   
 <script setup lang="ts">
-import { PropType, defineProps } from "vue";
+import { PropType, defineProps, defineEmits } from "vue";
 
 type InputType = "text" | "number" | "email" | "password";
 
@@ -21,4 +26,5 @@ const props = defineProps({
     default: "test",
   },
 });
+const emit = defineEmits(["updateInput"]);
 </script>

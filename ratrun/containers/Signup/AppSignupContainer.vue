@@ -1,5 +1,8 @@
 <template>
-  <AppSignup @form-submitted="handleFormSubmitted" />
+  <AppSignup
+    @form-submitted="handleFormSubmitted"
+    @update-input="handleUpdateInput($event)"
+  />
 </template>
 
 <script lang="ts" setup>
@@ -10,7 +13,7 @@ type InputDataType = {
   label: string;
   type: "email" | "password" | "number" | "text";
   placeholder: string;
-  value: string;
+  value: string | number;
 };
 
 const inputData: InputDataType[] = reactive([
@@ -30,18 +33,19 @@ const inputData: InputDataType[] = reactive([
 
 provide("formDataKey", inputData);
 
-const handleFormSubmitted = (inputData) => {
+const handleUpdateInput = (event: {
+  key: number;
+  value: InputDataType["value"];
+}) => {
+  inputData[event.key].value = event.value;
+};
+
+const handleFormSubmitted = () => {
   const Req = inputData.reduce(
     (acc, { type, value }) => ({ ...acc, [type]: value }),
     {}
   );
-  console.log("submitted Form Data :", inputData);
-
-  // const Req = {
-  //   email: value
-  //   password: value
-  // } と同じ
+  console.log(Req);
+  // ここでAPIを叩いたり、状態を管理する(emit)
 };
-
-// ここでAPIを叩いたり、状態を管理する(emit)
 </script>

@@ -6,7 +6,10 @@
         <BasicInput
           :type="data.type"
           :placeholder="data.placeholder"
-          v-model="data.value"
+          :value="data.value"
+          @updateInput="
+            $emit('updateInput', { value: $event.target.value, key: key })
+          "
         />
       </div>
     </fieldset>
@@ -16,27 +19,19 @@
         text="同意して新規登録する(無料)"
         color="#fff"
         backGround="#F86986"
-        @clickButton="submitForm(inputData)"
+        @clickButton="$emit('formSubmitted')"
       />
     </div>
   </form>
 </template>
 
 <script lang="ts" setup>
-import { inject, defineEmits, reactive } from "vue";
+import { inject, defineEmits } from "vue";
 import { BasicInput } from "../../atoms/Input";
 import { BasicButton } from "../../atoms/Button";
 
-const inputData = inject("formDataKey", reactive(null));
-const emit = defineEmits(["form-submitted"]);
-
-// // フォームデータの処理
-const submitForm = (inputData) => {
-  console.log("BasicForm", inputData);
-
-  // フォームデータを親コンポーネントに送信します(AppSignup.vue)
-  emit("form-submitted", inputData);
-};
+const inputData = inject("formDataKey", null);
+const emit = defineEmits(["updateInput", "formSubmitted"]);
 </script>
 
 
