@@ -23,7 +23,7 @@ const props = defineProps({
   },
   value: {
     type: String,
-    default: "test",
+    default: "",
   },
 });
 const emit = defineEmits(["updateInput"]);
