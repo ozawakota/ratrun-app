@@ -8,7 +8,7 @@
 </template>
   
 <script setup lang="ts">
-import { PropType, defineProps, defineEmits } from "vue";
+import { PropType, defineProps } from "vue";
 
 type InputType = "text" | "number" | "email" | "password";
 
