@@ -26,5 +26,4 @@ const props = defineProps({
     default: "",
   },
 });
-const emit = defineEmits(["updateInput"]);
 </script>
