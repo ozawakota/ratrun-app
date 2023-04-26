@@ -8,6 +8,7 @@
 <script lang="ts" setup>
 import { provide, reactive } from "vue";
 import { AppSignup } from "../../components/organisms/Signup";
+const { $email, $password } = useNuxtApp();
 
 type InputDataType = {
   label: string;
@@ -18,7 +19,6 @@ type InputDataType = {
   isValid: boolean;
   error: string;
   validate: (value: string | number) => boolean;
-  
 };
 
 const inputData: InputDataType[] = reactive([
@@ -31,12 +31,8 @@ const inputData: InputDataType[] = reactive([
     isValid: true,
     error: "",
     validate(value) {
-      // バリデーションルールを定義
-      const emailRegex = /^[^\s@]{1,255}@[^\s@]+\.[^\s@]+$/;
-      const specialCharRegex = /[!#\$%&'\*\+\-\/=\?\^_`\{\|\}~]/;
-      const isEmailValid = this.required ? emailRegex.test(String(value)) : true;
-      const isSpecialCharValid = !specialCharRegex.test(String(value));
-      return isEmailValid && isSpecialCharValid;
+      // バリデーションルールを定義(plugins)
+      return $email(value,this.required);
     },
   },
   {
@@ -48,12 +44,8 @@ const inputData: InputDataType[] = reactive([
     isValid: true,
     error: "",
     validate(value) {
-      // バリデーションルールを定義
-      const passwordRegex = /^([a-zA-Z0-9]{8,16})$/;
-      const specialCharRegex = /[!#\$%&'\*\+\-\/=\?\^_`\{\|\}~]/;
-      const isPasswordValid = this.required ? passwordRegex.test(String(value)) : true;
-      const isSpecialCharValid = !specialCharRegex.test(String(value));
-      return isPasswordValid && isSpecialCharValid;
+      // バリデーションルールを定義(plugins)
+      return $password(value,this.required);
     },
   },
 ]);

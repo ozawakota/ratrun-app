@@ -1,19 +1,19 @@
 export default defineNuxtPlugin(() => {
   return {
     provide: {
-      checkValidate: (inputData,value,key) => {
-        const isValid = inputData[key].validate(value);
-
-        if (!isValid) {
-          inputData[key].isValid = false;
-          inputData[key].error = `${
-            inputData[key].label
-          }を正しく入力してください。${inputData[key].required ? "必須項目です。" : ""}`;
-        } else {
-          inputData[key].isValid = true;
-          inputData[key].error = "";
-        }
-
+      email: (value, required) => {
+        const emailRegex = /^[^\s@]{1,255}@[^\s@]+\.[^\s@]+$/;
+        const specialCharRegex = /[!#\$%&'\*\+\-\/=\?\^_`\{\|\}~]/;
+        const isEmailValid = required ? emailRegex.test(String(value)) : true;
+        const isSpecialCharValid = !specialCharRegex.test(String(value));
+        return isEmailValid && isSpecialCharValid;
+      },
+      password: (value, required) => {
+        const passwordRegex = /^([a-zA-Z0-9]{8,16})$/;
+        const specialCharRegex = /[!#\$%&'\*\+\-\/=\?\^_`\{\|\}~]/;
+        const isPasswordValid = required ? passwordRegex.test(String(value)) : true;
+        const isSpecialCharValid = !specialCharRegex.test(String(value));
+        return isPasswordValid && isSpecialCharValid;
       }
     }
   }
