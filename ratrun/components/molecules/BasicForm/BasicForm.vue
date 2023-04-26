@@ -10,7 +10,7 @@
           @updateInput="
           updateInput($event.target.value, key)
           "
-          @blur="checkValidate($event.target.value, key)"
+          @blur="$checkValidate(inputData, $event.target.value, key)"
           :required="data.required"
         />
       </div>
@@ -33,26 +33,16 @@ import { inject, defineEmits } from "vue";
 import { BasicInput } from "../../atoms/Input";
 import { BasicButton } from "../../atoms/Button";
 
+
 const inputData = inject("formDataKey", null);
 const emit = defineEmits(["updateInput", "formSubmitted"]);
+// plugins
+const { $checkValidate } = useNuxtApp();
 
 const updateInput = (value, key) => {
   emit("updateInput", { value:value, key:key });
 }
 
-const checkValidate = (value: string, key: number) => {
-  const isValid = inputData[key].validate(value);
-
-  if (!isValid) {
-    inputData[key].isValid = false;
-    inputData[key].error = `${
-      inputData[key].label
-    }を正しく入力してください。${inputData[key].required ? "必須項目です。" : ""}`;
-  } else {
-    inputData[key].isValid = true;
-    inputData[key].error = "";
-  }
-}
 
 
 </script>

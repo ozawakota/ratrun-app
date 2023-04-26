@@ -30,29 +30,29 @@ const inputData: InputDataType[] = reactive([
     required: true,
     isValid: true,
     error: "",
-    validate(value: string) {
+    validate(value) {
       // バリデーションルールを定義
       const emailRegex = /^[^\s@]{1,255}@[^\s@]+\.[^\s@]+$/;
       const specialCharRegex = /[!#\$%&'\*\+\-\/=\?\^_`\{\|\}~]/;
-      const isEmailValid = this.required ? emailRegex.test(value) : true;
-      const isSpecialCharValid = !specialCharRegex.test(value);
+      const isEmailValid = this.required ? emailRegex.test(String(value)) : true;
+      const isSpecialCharValid = !specialCharRegex.test(String(value));
       return isEmailValid && isSpecialCharValid;
     },
   },
   {
     label: "パスワード",
-    type: "text",
+    type: "password",
     placeholder: "パスワード(半角英数6文字以上)",
     value: "",
     required: true,
     isValid: true,
     error: "",
-    validate(value: string) {
+    validate(value) {
       // バリデーションルールを定義
       const passwordRegex = /^([a-zA-Z0-9]{8,16})$/;
       const specialCharRegex = /[!#\$%&'\*\+\-\/=\?\^_`\{\|\}~]/;
-      const isPasswordValid = this.required ? passwordRegex.test(value) : true;
-      const isSpecialCharValid = !specialCharRegex.test(value);
+      const isPasswordValid = this.required ? passwordRegex.test(String(value)) : true;
+      const isSpecialCharValid = !specialCharRegex.test(String(value));
       return isPasswordValid && isSpecialCharValid;
     },
   },
