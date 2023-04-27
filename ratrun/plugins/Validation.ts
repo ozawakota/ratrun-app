@@ -1,19 +1,21 @@
 export default defineNuxtPlugin(() => {
+  function createValidator(regex: RegExp, required: boolean) {
+    return (value: string): boolean => {
+      const specialCharRegex = /[!#\$%&'\*\+\-\/=\?\^_`\{\|\}~]/;
+      const isValid = required ? regex.test(value) : true;
+      const isSpecialCharValid = !specialCharRegex.test(value);
+      return isValid && isSpecialCharValid;
+    }
+  }
   return {
     provide: {
-      email: (value, required) => {
+      email: (value: string, required: boolean) => {
         const emailRegex = /^[^\s@]{1,255}@[^\s@]+\.[^\s@]+$/;
-        const specialCharRegex = /[!#\$%&'\*\+\-\/=\?\^_`\{\|\}~]/;
-        const isEmailValid = required ? emailRegex.test(String(value)) : true;
-        const isSpecialCharValid = !specialCharRegex.test(String(value));
-        return isEmailValid && isSpecialCharValid;
+        return createValidator(emailRegex, required)(value);
       },
-      password: (value, required) => {
+      password: (value: string, required: boolean) => {
         const passwordRegex = /^([a-zA-Z0-9]{8,16})$/;
-        const specialCharRegex = /[!#\$%&'\*\+\-\/=\?\^_`\{\|\}~]/;
-        const isPasswordValid = required ? passwordRegex.test(String(value)) : true;
-        const isSpecialCharValid = !specialCharRegex.test(String(value));
-        return isPasswordValid && isSpecialCharValid;
+        return createValidator(passwordRegex, required)(value);
       }
     }
   }
