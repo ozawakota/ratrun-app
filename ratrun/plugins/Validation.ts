@@ -9,11 +9,11 @@ export default defineNuxtPlugin(() => {
   }
   return {
     provide: {
-      email: (value: string, required: boolean) => {
+      email: (value: string, required: boolean): boolean => {
         const emailRegex = /^[^\s@]{1,255}@[^\s@]+\.[^\s@]+$/;
         return createValidator(emailRegex, required)(value);
       },
-      password: (value: string, required: boolean) => {
+      password: (value: string, required: boolean): boolean => {
         const passwordRegex = /^([a-zA-Z0-9]{8,16})$/;
         return createValidator(passwordRegex, required)(value);
       }
