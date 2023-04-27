@@ -8,12 +8,17 @@
 <script lang="ts" setup>
 import { provide, reactive } from "vue";
 import { AppSignup } from "../../components/organisms/Signup";
+const { $email, $password } = useNuxtApp();
 
 type InputDataType = {
   label: string;
   type: "email" | "password" | "number" | "text";
   placeholder: string;
   value: string | number;
+  required: boolean;
+  isValid: boolean;
+  error: string;
+  validate: (value: string | number) => boolean;
 };
 
 const inputData: InputDataType[] = reactive([
@@ -22,12 +27,26 @@ const inputData: InputDataType[] = reactive([
     type: "email",
     placeholder: "taro.tanaka@example.com",
     value: "",
+    required: true,
+    isValid: true,
+    error: "",
+    validate(value) {
+      // バリデーションルールを定義(plugins)
+      return $email(value,this.required);
+    },
   },
   {
     label: "パスワード",
     type: "password",
     placeholder: "パスワード(半角英数6文字以上)",
     value: "",
+    required: true,
+    isValid: true,
+    error: "",
+    validate(value) {
+      // バリデーションルールを定義(plugins)
+      return $password(value,this.required);
+    },
   },
 ]);
 
