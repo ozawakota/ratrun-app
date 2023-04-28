@@ -19,6 +19,7 @@ type InputDataType = {
   isValid: boolean;
   error: string;
   validate: (value: string | number) => boolean;
+  isVisibleIcon: boolean;
 };
 
 const inputData: InputDataType[] = reactive([
@@ -34,11 +35,12 @@ const inputData: InputDataType[] = reactive([
       // バリデーションルールを定義(plugins)
       return $email(value,this.required);
     },
+    isVisibleIcon: false
   },
   {
     label: "パスワード",
     type: "password",
-    placeholder: "パスワード(半角英数6文字以上)",
+    placeholder: "パスワード(半角英数8~16文字)",
     value: "",
     required: true,
     isValid: true,
@@ -47,6 +49,7 @@ const inputData: InputDataType[] = reactive([
       // バリデーションルールを定義(plugins)
       return $password(value,this.required);
     },
+    isVisibleIcon: true
   },
 ]);
 
