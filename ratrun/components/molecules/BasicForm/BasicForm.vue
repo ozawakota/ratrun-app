@@ -13,6 +13,15 @@
           @blur="checkValidate($event.target.value, key)"
           :required="data.required"
         />
+        <button 
+          type="button"
+          id="icon_eye" 
+          v-if="data.isVisibleIcon" 
+          @click="toggleInputType(key)">
+          <font-awesome-icon 
+          :icon="data.type !== 'password' ? ['fas', 'eye'] : ['fas', 'eye-slash']" 
+          />
+        </button>
       </div>
       <div v-if="!data.isValid" class="error">{{ data.error }}</div>
     </fieldset>
@@ -61,6 +70,10 @@ const checkValidate = (value: string, key: number) => {
   }
 }
 
+// アイコンクリックでinputタイプを変更
+const toggleInputType = (key: number) => {
+  inputData[key].type = inputData[key].type === "password" ? "text" : "password";
+}
 
 </script>
 
@@ -74,10 +87,24 @@ const checkValidate = (value: string, key: number) => {
       text-align: center;
     }
   }
+  .form_input{
+    input{
+      padding-inline-end: 40px;
+    }
+    position: relative;
+    #icon_eye{
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+  }
   .error{
     color: #e92149;
     margin-block-start: 10px;
     font-size: 15px;
   }
+  
 }
 </style>
