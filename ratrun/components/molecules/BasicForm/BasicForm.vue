@@ -21,6 +21,7 @@
           <font-awesome-icon 
           :icon="data.type !== 'password' ? ['fas', 'eye'] : ['fas', 'eye-slash']" 
           />
+
         </button>
       </div>
       <div v-if="!data.isValid" class="error">{{ data.error }}</div>
@@ -32,6 +33,7 @@
         color="#fff"
         backGround="#F86986"
         @clickButton="$emit('formSubmitted')"
+        :isButtonDisabled= isButtonDisabled()
       />
     </div>
   </form>
@@ -68,6 +70,7 @@ const checkValidate = (value: string, key: number) => {
     inputData[key].isValid = true;
     inputData[key].error = "";
   }
+
 }
 
 // アイコンクリックでinputタイプを変更
@@ -75,6 +78,11 @@ const toggleInputType = (key: number) => {
   inputData[key].type = inputData[key].type === "password" ? "text" : "password";
 }
 
+// ボタンをアクティブにする
+const isButtonDisabled = () => {
+
+  return !(inputData[0].validate(inputData[0].value) && inputData[1].validate(inputData[1].value));
+}
 </script>
 
 

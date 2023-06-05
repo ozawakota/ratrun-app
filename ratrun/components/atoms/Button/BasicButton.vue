@@ -3,6 +3,7 @@
     type="button"
     @click="$emit('clickButton', $event)"
     :class="['c-btn']"
+    :disabled="isButtonDisabled"
   >
     <span>{{ text }}</span>
   </button>
@@ -24,6 +25,11 @@ const props = defineProps({
     type: String,
     default: "",
   },
+  isButtonDisabled: {
+    type: Boolean,
+    default: true,
+  },
+
 });
 </script>
   
@@ -33,5 +39,10 @@ const props = defineProps({
   background-color: v-bind(backGround);
   border-color: v-bind(backGround);
   color: v-bind(color);
+  &:disabled{
+    border-color:#ccc;
+    background-color:#ccc;
+    pointer-events:none;
+  }
 }
 </style>
