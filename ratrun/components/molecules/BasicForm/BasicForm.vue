@@ -80,7 +80,7 @@ const toggleInputType = (key: number) => {
 
 
 <style lang='scss' scoped>
-.signup {
+.signup,.login {
   &_form {
     margin-block-start: 30px;
     &-btn {
