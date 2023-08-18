@@ -6,6 +6,7 @@
         <BasicForm
           @form-submitted="$emit('formSubmitted', $event)"
           @update-input="$emit('updateInput', $event)"
+          btnText = "ログインする"
         />
       </div>
     </div>

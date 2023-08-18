@@ -29,7 +29,7 @@
 
     <div class="form-btn signup_form-btn">
       <BasicButton
-        text="同意して新規登録する(無料)"
+        :text="props.btnText"
         color="#fff"
         backGround="#F86986"
         @clickButton="$emit('formSubmitted')"
@@ -40,14 +40,20 @@
 </template>
 
 <script lang="ts" setup>
-import { inject, defineEmits } from "vue";
+import { inject, defineEmits, defineProps } from "vue";
 import { BasicInput } from "../../atoms/Input";
 import { BasicButton } from "../../atoms/Button";
 
 
 const inputData = inject("formDataKey", null);
 const emit = defineEmits(["updateInput", "formSubmitted"]);
+const props = defineProps({
+  btnText: {
+    type: String,
+    default: "ボタンテキスト",
+  },
 
+});
 const updateInput = (value, key) => {
   emit("updateInput", { value:value, key:key });
 }

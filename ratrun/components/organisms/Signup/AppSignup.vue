@@ -6,6 +6,7 @@
         <BasicForm
           @form-submitted="$emit('formSubmitted', $event)"
           @update-input="$emit('updateInput', $event)"
+          btnText = "同意して新規登録する(無料)"
         />
       </div>
     </div>
