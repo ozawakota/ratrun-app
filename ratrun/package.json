@@ -27,6 +27,7 @@
   "dependencies": {
     "@nuxt/http": "^0.6.4",
     "dayjs-nuxt": "^1.1.2",
+    "firebase": "^10.2.0",
     "nuxt-fontawesome": "^0.4.0",
     "sass": "^1.63.5",
     "vue": "^3.2.47"
