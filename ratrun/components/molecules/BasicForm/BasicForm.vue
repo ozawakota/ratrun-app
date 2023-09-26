@@ -13,12 +13,12 @@
           @blur="checkValidate($event.target.value, key)"
           :required="data.required"
         />
-        <button 
+        <button
           type="button"
-          id="icon_eye" 
+          id="icon_eye"
           v-if="data.isVisibleIcon" 
           @click="toggleInputType(key)">
-          <font-awesome-icon 
+          <font-awesome-icon
           :icon="data.type !== 'password' ? ['fas', 'eye'] : ['fas', 'eye-slash']" 
           />
 

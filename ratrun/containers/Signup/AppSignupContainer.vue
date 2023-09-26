@@ -54,13 +54,11 @@ const handleUpdateInput = (event: {
 
 const handleFormSubmitted = () => {
 
-  console.log($changeKey("test"), "inputData");
-
   const Req = inputData.reduce(
-    (acc, { type, value }) => ({ ...acc, [type]: value }),
+    (acc, { type, value }) => ({ ...acc, [type === "text" ? "password" : type]: value }),
     {}
   );
-  console.log(Req);
+
   // ここでAPIを叩いたり、状態を管理する(emit)
 };
 </script>
