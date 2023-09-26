@@ -6,21 +6,11 @@
 </template>
 
 <script lang="ts" setup>
+import { InputDataType } from "@/types/user";
+
 import { provide, reactive } from "vue";
 import { AppSignup } from "../../components/organisms/Signup";
-const { $email, $password } = useNuxtApp();
-
-type InputDataType = {
-  label: string;
-  type: "email" | "password" | "number" | "text";
-  placeholder: string;
-  value: string | number;
-  required: boolean;
-  isValid: boolean;
-  error: string;
-  validate: (value: string | number) => boolean;
-  isVisibleIcon: boolean;
-};
+const { $email, $password, $changeKey } = useNuxtApp();
 
 const inputData: InputDataType[] = reactive([
   {
@@ -63,11 +53,12 @@ const handleUpdateInput = (event: {
 };
 
 const handleFormSubmitted = () => {
+
   const Req = inputData.reduce(
-    (acc, { type, value }) => ({ ...acc, [type]: value }),
+    (acc, { type, value }) => ({ ...acc, [type === "text" ? "password" : type]: value }),
     {}
   );
-  console.log(Req);
+
   // ここでAPIを叩いたり、状態を管理する(emit)
 };
 </script>
