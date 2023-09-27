@@ -7,7 +7,7 @@
 
 <script lang="ts" setup>
 import { InputDataType } from "@/types/user";
-import { provide, reactive, useRouter } from "vue";
+import { provide, reactive } from "vue";
 import { AppSignup } from "@/components/organisms/Signup";
 import { postRegistration } from "@/api/user";
 

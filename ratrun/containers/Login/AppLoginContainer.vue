@@ -7,11 +7,13 @@
 
 <script lang="ts" setup>
 import { InputDataType } from "@/types/user";
-import { provide, reactive, useRouter } from "vue";
+import { provide, reactive } from "vue";
 import { AppLogin } from "@/components/organisms/Login";
 import { postLogin } from '@/api/user';
 
 const router = useRouter();
+
+
 
 const { $email, $password, $changeKey } = useNuxtApp();
 
