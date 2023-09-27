@@ -7,8 +7,11 @@
 
 <script lang="ts" setup>
 import { InputDataType } from "@/types/user";
-import { provide, reactive } from "vue";
-import { AppLogin } from "../../components/organisms/Login";
+import { provide, reactive, useRouter } from "vue";
+import { AppLogin } from "@/components/organisms/Login";
+import { postLogin } from '@/api/user';
+
+const router = useRouter();
 
 const { $email, $password, $changeKey } = useNuxtApp();
 
@@ -54,12 +57,20 @@ const handleUpdateInput = (event: {
   inputData[event.key].value = event.value;
 };
 
-const handleFormSubmitted = () => {
+const handleFormSubmitted = async () => {
 
   const Req = inputData.reduce(
     (acc, { type, value }) => ({ ...acc, [type === "text" ? "password" : type]: value }),
     {}
   );
   // ここでAPIを叩いたり、状態を管理する(emit)
+  try{
+    const res = await postLogin(Req);
+    alert(`こんにちは。${Req.email}さん。top画面へ遷移します。`)
+    router.push("/");
+  }catch{
+    alert(`ログインに失敗しました`)
+  }
+
 };
 </script>
