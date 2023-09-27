@@ -7,9 +7,11 @@
 
 <script lang="ts" setup>
 import { InputDataType } from "@/types/user";
-import { provide, reactive } from "vue";
+import { provide, reactive, useRouter } from "vue";
 import { AppLogin } from "@/components/organisms/Login";
-import { postLogin } from '@/api/user'
+import { postLogin } from '@/api/user';
+
+const router = useRouter();
 
 const { $email, $password, $changeKey } = useNuxtApp();
 
@@ -65,7 +67,7 @@ const handleFormSubmitted = async () => {
   try{
     const res = await postLogin(Req);
     alert(`こんにちは。${Req.email}さん。top画面へ遷移します。`)
-    // ログインに成功しました
+    router.push("/");
   }catch{
     alert(`ログインに失敗しました`)
   }
