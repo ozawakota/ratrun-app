@@ -13,6 +13,7 @@
 <script setup lang="ts">
 import { BasicLoading } from "@/components/atoms/Loading/";
 import { ref } from "vue";
+import type { Ref } from 'vue';
 import {
   getMatters,
 } from "@/api/matters";
