@@ -40,3 +40,40 @@ npm run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+## Firebase + Github Action 連携
+
+Firebase Hosting を使用します
+
+```
+npm install -g firebase-tools
+```
+
+次へ
+
+```
+firebase login
+```
+
+許可してください
+
+```
+firebase init
+```
+
+```
+For which GitHub repository would you like to set up a GitHub workflow? (format: user/repository)
+
+リポジトリ名を設定
+ozawakota/ratrun-app
+```
+
+```
+What script should be run before every deploy? yarn install && npm run build
+```
+
+```
+URL
+https://ratrun-564ac.web.app/
+
+```
