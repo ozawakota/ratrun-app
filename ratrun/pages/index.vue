@@ -13,22 +13,24 @@
 <script setup lang="ts">
 import { BasicLoading } from "@/components/atoms/Loading/";
 import { ref } from "vue";
+import {
+  getMatters,
+} from "@/api/matters";
+import { Matters } from "@/types/matter";
+
 
 const isLoading = ref(false);
+const matters: Ref<Matters[]> = ref([]);
 
 (async () => {
 
   try {
     isLoading.value = true;
-    // alert(`${isLoading.value} 通信中`);
+    matters.value = await getMatters();
   } catch {
     alert("error");
   } finally {
-    setTimeout(() => {
-      isLoading.value = false
-      // alert(`${isLoading.value} 通信完了`);
-    }, 2000);
-
+    isLoading.value = false
   }
 })();
 
