@@ -21,7 +21,7 @@
               <nuxt-link to="">案件を探す</nuxt-link>
             </li>
             <li>
-              <nuxt-link to="">ログイン</nuxt-link>
+              <nuxt-link to="/users/login">ログイン</nuxt-link>
             </li>
           </ul>
         </nav>
