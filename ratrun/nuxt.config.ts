@@ -6,7 +6,8 @@ export default defineNuxtConfig({
     "@fortawesome/fontawesome-svg-core/styles.css"
   ],
   plugins: [
-    '@/plugins/Fontawesome.ts'
+    '@/plugins/Fontawesome.ts',
+    { src: "~/plugins/firebase.js", ssr: false }
   ],
   vite: {
     css: {
