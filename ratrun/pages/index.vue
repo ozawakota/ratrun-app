@@ -9,8 +9,6 @@
   </div>
 </template>
 
-
-
 <style lang="scss" scoped>
 .top {
   &-page {
