@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   ],
   plugins: [
     '@/plugins/Fontawesome.ts',
-    { src: "~/plugins/firebase.js", ssr: false }
+    { src: "~/plugins/firebase.client.ts", ssr: false }
   ],
   vite: {
     css: {
