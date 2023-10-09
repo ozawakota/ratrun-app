@@ -36,7 +36,6 @@ const matters: Ref<Matters[]> = ref([]);
 })();
 
 </script>
-
 <style lang="scss" scoped>
 .top {
   &-page {
