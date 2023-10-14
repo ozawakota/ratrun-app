@@ -17,6 +17,9 @@ jobs:
         with:
           node-version: "18.12.1"
 
+      - name: npm install
+        run: npm i
+
       - name: Install Dependencies
         run: |
           npm install
