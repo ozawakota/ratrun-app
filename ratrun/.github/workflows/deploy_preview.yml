@@ -18,6 +18,9 @@ jobs:
         with:
           node-version: "18.12.1"
 
+      - name: npm install
+        run: npm i
+
       - name: install tree and jq
         run: |
           sudo apt update
