@@ -79,3 +79,10 @@ https://ratrun-564ac.web.app/
 ```
 
 v18.12.1
+
+## 注意点
+
+ratrun/.github/workflows を読まれて欲しいので
+ratrun 直下で
+git init , add , commit , remote add , push
+を行う
